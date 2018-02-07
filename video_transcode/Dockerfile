@@ -1,6 +1,7 @@
 FROM    ubuntu:latest
-MAINTAINER  Carson Longhorn <dockerfiles@unrelated.net.au>
+
 ENV    DEBIAN_FRONTEND noninteractive
+
 RUN    apt-get update && \
     apt-get -y install \
       software-properties-common \
@@ -21,6 +22,6 @@ RUN    apt-get update && \
     && \
     apt-get clean && \
     rm -rf /var/cache/* /var/log/apt/* /tmp/* && \
-    gem install video_transcoding && \
-    echo Finished > /dev/null
+    gem install video_transcoding
+
 CMD  transcode-video
